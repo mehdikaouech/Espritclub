@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+{% block head   %}
+{% endblock%}
+{% block body %}
+    <table class="table table-dark table-striped">
+
+    <tr>
+        <td>Nce</td>
+        <td>FirstName</td>
+        <td>LastName</td>
+        <td>Email</td>
+        <td>Action</td>
+        <td>classeRoom</td>
+
+    </tr>
+    {% for i in students %}
+        <tr>
+            <td>{{ i.nce }}</td>
+            <td>{{ i.FirstName }}</td>
+            <td>{{ i.LastName }}</td>
+            <td>{{ i.Email }}</td>
+            <td>{{ i.classroom}}</td>
+           <td><a href="{{ path("updateStudent",{'id':i.Nce}) }}">update</a> <a href="{{ path('removeStudent',{'id':i.Nce}) }}">delete</a></td>
+
+
+
+        </tr>
+    {% endfor %}
+</table>
+{% endblock  %}

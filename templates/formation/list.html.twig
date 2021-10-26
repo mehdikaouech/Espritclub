@@ -1,0 +1,34 @@
+<h1> liste des Formation disponible : </h1>
+<table>
+    <tr>
+    <td>Ref</td>
+    <td>Titre</td>
+    <td>Desc</td>
+    <td>DD</td>
+    <td>DF</td>
+    <td>NP</td>
+    </tr>
+    {% if listFormations is empty %}
+    <h5>pas de formation</h5>
+    {% else %}
+     {% for f in listformation %}
+    <tr>
+    <td>{{ f.ref}}</td>
+    <td>{{ f.Titre|upper }}</td>
+    <td>{{ f.Description }}</td>
+    <td>{{ f.date_debut }}</td>
+        <td>{{ f.date_fin }}</td>
+    <td>
+         {% if f.nb_participants ==0 %}
+         <h6>complet</h6>
+     {% else %}
+        {{ f.nb_participants }}
+         {% endif %}
+         </td>
+
+
+</tr>
+    {% endfor %}
+</table>
+{% endif %}
+Nbr de formation: {{ listFormations|length }}

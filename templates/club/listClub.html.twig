@@ -1,0 +1,21 @@
+
+<h1>Classroom</h1>
+<table border="1">
+    <tr>
+        <td>nom</td>
+        <td>membre</td>
+        <td>description</td>
+        <td colspan="2" style="text-align: center">Action</td>
+    </tr>
+    {% for i in listclub %}
+        <tr>
+            <td>{{ i.nom }}</td>
+            <td>{{ i.membre }}</td>
+            <td>{{ i.description }}</td>
+
+          <td><a href="{{ path('updateClub',{'id':i.id}) }}">update</a></td>
+         <td><a href="{{ path('removeClub',{'id':i.id}) }}">delete</a></td>
+
+        </tr>
+    {% endfor %}
+</table>
